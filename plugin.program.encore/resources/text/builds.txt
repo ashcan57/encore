@@ -1,0 +1,18 @@
+id="plugin.program.matrix"
+version="1.0"
+zip="https://dundas56.000webhostapp.com/matrix/builds.txt"
+
+name="Encore Build"
+version="1.0"
+url="https://dundas56.000webhostapp.com/matrix/builds.txt"
+minor="http://"
+gui="url.to.guisettings"
+kodi="19.0"
+theme="url.to.themes"
+icon="https://dundas56.000webhostapp.com/matrix/icon.png"
+fanart="https://dundas56.000webhostapp.com/matrix/fanart.jpg"
+preview="https://"
+adult="no"
+info="url.to.info"
+description="The Best Kodi Build that you will ever use."
+
