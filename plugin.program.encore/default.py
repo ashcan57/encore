@@ -2,23 +2,19 @@
 import xbmc
 import xbmcgui
 import xbmcaddon
+import xbmcplugin
 import os
 import zipfile
 import urllib.request
 import shutil
 
-# === BUILD SETTINGS ===
-BUILD_NAME = "dab19"
-BUILD_VERSION = "1.0.0"
-BUILD_ZIP_URL = "https://www.dropbox.com/scl/fi/90rsb9oal9dc3fp3g1l8s/dab19.zip?rlkey=5st59x4bq5xpvljnf0rlflu1z&st=pdnur39y&dl=1"  # direct link
-EXTRACT_PATH = "special://home/"
-CLEAR_CACHE = True
-CLEAR_THUMBNAILS = True
+# Import your build settings
+import uservar
 
-# === ADDON INFO ===
+# === GET ADDON INFO ===
 ADDON = xbmcaddon.Addon()
+HOME = xbmc.translatePath(ADDON.getAddonInfo('path'))
 TEMP_ZIP = os.path.join(xbmc.translatePath('special://home/addons/packages/'), 'build.zip')
-
 
 # === DOWNLOAD FUNCTION ===
 def download_file(url, destination):
@@ -49,7 +45,6 @@ def download_file(url, destination):
         xbmcgui.Dialog().notification("Download Failed", str(e), xbmcgui.NOTIFICATION_ERROR, 5000)
         return False
 
-
 # === EXTRACT FUNCTION ===
 def extract_zip(zip_path, extract_to):
     try:
@@ -71,44 +66,40 @@ def extract_zip(zip_path, extract_to):
         xbmcgui.Dialog().notification("Extraction Failed", str(e), xbmcgui.NOTIFICATION_ERROR, 5000)
         return False
 
-
-# === INSTALL FUNCTION ===
+# === MAIN INSTALLER ===
 def install_build():
     confirm = xbmcgui.Dialog().yesno("Confirm Install",
-                                     f"Install {BUILD_NAME} v{BUILD_VERSION}?",
+                                     f"Install {uservar.buildname} v{uservar.buildversion}?",
                                      nolabel="Cancel", yeslabel="Install")
     if not confirm:
         return
 
-    xbmcgui.Dialog().notification("Starting", f"Installing {dab19}...", xbmcgui.NOTIFICATION_INFO, 3000)
+    xbmcgui.Dialog().notification("Starting", uservar.installmessage, xbmcgui.NOTIFICATION_INFO, 3000)
 
-    # Download build ZIP
-    if not download_file(BUILD_ZIP_URL, TEMP_ZIP):
+    # Download build
+    if not download_file(uservar.buildzip, TEMP_ZIP):
         return
 
-    # Clear cache/thumbnails if enabled
-    if CLEAR_CACHE:
+    # Clear cache if enabled
+    if uservar.clearcache:
         cache_path = xbmc.translatePath('special://home/cache')
-        shutil.rmtree(cache_path, ignore_errors=True)
-    if CLEAR_THUMBNAILS:
-        thumbs_path = xbmc.translatePath('special://home/userdata/Thumbnails')
-        shutil.rmtree(thumbs_path, ignore_errors=True)
+        if os.path.exists(cache_path):
+            shutil.rmtree(cache_path, ignore_errors=True)
 
-    # Extract ZIP
-    if not extract_zip(TEMP_ZIP, xbmc.translatePath(EXTRACT_PATH)):
+    # Extract build
+    if not extract_zip(TEMP_ZIP, xbmc.translatePath(uservar.extractpath)):
         return
 
     # Clean up
-    try:
-        os.remove(TEMP_ZIP)
-    except:
-        pass
+    os.remove(TEMP_ZIP)
 
-    xbmcgui.Dialog().ok("Build Installed", f"{dab19} v{1.0.0} installed successfully!")
+    xbmcgui.Dialog().ok("Build Installed", uservar.complete_message)
+
     xbmcgui.Dialog().notification("Done", "Restart Kodi to load your new build!", xbmcgui.NOTIFICATION_INFO, 5000)
 
 
 # === ENTRY POINT ===
 if __name__ == '__main__':
     install_build()
+
 
