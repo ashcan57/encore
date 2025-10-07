@@ -5,9 +5,9 @@
        provider-name="ashcan57">
 
     <extension point="xbmc.addon.repository" name="Encore Repository">
-        <info>https://ashcan57.github.io/repository.encore/addons.xml</info>
-        <checksum>https://ashcan57.github.io/repository.encore/addons.xml.md5</checksum>
-        <datadir>https://ashcan57.github.io/repository.encore/zips/</datadir>
+        <info>https://github.com/ashcan57/encore/blob/main/addons.xml</info>
+        <checksum>https://github.com/ashcan57/encore/blob/main/addons.xml.md5</checksum>
+        <datadir>https://github.com/ashcan57/encore/blob/main/zips/</datadir>
     </extension>
 
     <extension point="xbmc.addon.metadata">
