@@ -1,22 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.encore"
-       name="My Kodi Repo"
+       name="Encore Repository"
        version="1.0.0"
        provider-name="ashcan57">
-    <extension point="xbmc.addon.repository" name="My Repo">
-    <info>https://ashcan57.github.io/repository.encore/addons.xml</info>
-    <checksum>https://ashcan57.github.io/repository.encore/addons.xml.md5</checksum>
-    <datadir>https://ashcan57.github.io/repository.encore/zips/</datadir>
-</extension>
 
+    <extension point="xbmc.addon.repository" name="Encore Repository">
+        <info>https://ashcan57.github.io/repository.encore/addons.xml</info>
+        <checksum>https://ashcan57.github.io/repository.encore/addons.xml.md5</checksum>
+        <datadir>https://ashcan57.github.io/repository.encore/zips/</datadir>
+    </extension>
 
     <extension point="xbmc.addon.metadata">
-        <summary>My Kodi Repository</summary>
-        <description>Repository for My Kodi Addons and Builds</description>
+        <summary>Official Encore Repository</summary>
+        <description>Encore repository for builds and addons by ashcan57.</description>
         <platform>all</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
     </extension>
+
 </addon>
+
 
