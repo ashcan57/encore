@@ -2,12 +2,12 @@
        name="My Kodi Repo"
        version="1.0.0"
        provider-name="ashcan57">
-    <extension point="xbmc.addon.repository"
-               name="My Kodi Repository">
-        <info compressed="false">https://raw.githubusercontent.com/ashcan57/encore/main/addons.xml</info>
-        <checksum>https://raw.githubusercontent.com/ashcan57/encore/main/addons.xml.md5</checksum>
-        <datadir zip="true">https://raw.githubusercontent.com/ashcan57/encore/main/zips/</datadir>
-    </extension>
+    <extension point="xbmc.addon.repository" name="My Repo">
+    <info>https://ashcan57.github.io/repository.encore/addons.xml</info>
+    <checksum>https://ashcan57.github.io/repository.encore/addons.xml.md5</checksum>
+    <datadir>https://ashcan57.github.io/repository.encore/zips/</datadir>
+</extension>
+
 
     <extension point="xbmc.addon.metadata">
         <summary>My Kodi Repository</summary>
