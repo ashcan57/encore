@@ -1,41 +1,36 @@
 <addons>
-<addon id="plugin.program.encore"
-       name="My Kodi Build"
-       version="1.0.0"
-       provider-name="ashcan57">
-    <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>executable</provides>
-    </extension>
+    <addon id="repository.encore"
+           name="Encore Repository"
+           version="1.0.0"
+           provider-name="ashcan57">
+        <extension point="xbmc.addon.repository"
+                   name="Encore Repository">
+            <info>https://raw.githubusercontent.com/ashcan57/encore/main/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/ashcan57/encore/main/addons.xml.md5</checksum>
+            <datadir>https://raw.githubusercontent.com/ashcan57/encore/main/</datadir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>Encore Repository</summary>
+            <description>Official repository for Encore Wizard and builds.</description>
+            <platform>all</platform>
+        </extension>
+    </addon>
 
-    <extension point="xbmc.addon.metadata">
-        <summary>Install My Custom Kodi Build</summary>
-        <description>This addon installs and sets up My Kodi Build from Dropbox.</description>
-        <platform>all</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-        <source>https://www.dropbox.com/scl/fi/90rsb9oal9dc3fp3g1l8s/dab19.zip?rlkey=5st59x4bq5xpvljnf0rlflu1z&st=mi670jql&dl=1</source>
-    </extension>
-</addon>
-
-<addon id="repository.encore"
-       name="Encore Repository"
-       version="1.0.0"
-       provider-name="ashcan57">
-
-    <extension point="xbmc.addon.repository" name="Encore Repository">
-    <info>https://ashcan57.github.io/encore/addons.xml</info>
-    <checksum>https://ashcan57.github.io/encore/addons.xml.md5</checksum>
-    <datadir>https://ashcan57.github.io/encore/zips/</datadir>
-</extension>
-
-
-    <extension point="xbmc.addon.metadata">
-        <summary>Official Encore Repository</summary>
-        <description>Encore repository for builds and addons by ashcan57.</description>
-        <platform>all</platform>
-    </extension>
-
-</addon>
+    <addon id="plugin.program.encore"
+           name="Encore Wizard"
+           version="1.0.0"
+           provider-name="ashcan57">
+        <requires>
+            <import addon="xbmc.python" version="3.0.0"/>
+        </requires>
+        <extension point="xbmc.python.pluginsource" library="default.py">
+            <provides>executable</provides>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>Encore Wizard</summary>
+            <description>Install and manage the Encore Kodi build.</description>
+            <platform>all</platform>
+        </extension>
+    </addon>
 </addons>
+
