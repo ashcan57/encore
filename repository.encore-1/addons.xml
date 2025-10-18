@@ -1,0 +1,19 @@
+<addons>
+  <addon id="repository.encore" name="Encore Repository" version="1.0.0" provider-name="ashcan57">
+    <extension point="xbmc.addon.repository">
+      <dir>
+        <info>https://ashcan57.github.io/encore/repository.encore/addons.xml</info>
+        <checksum>https://ashcan57.github.io/encore/repository.encore/addons.xml.md5</checksum>
+        <datadir>https://ashcan57.github.io/encore/repository.encore/zips/</datadir>
+      </dir>
+    </extension>
+  </addon>
+
+  <addon id="plugin.program.encore" name="Encore Wizard" version="1.0.0" provider-name="ashcan57">
+    <extension point="xbmc.python.pluginsource" library="wizard.py" />
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+    </requires>
+  </addon>
+</addons>
+
