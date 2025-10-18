@@ -2,18 +2,17 @@
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
     </requires>
-
     <extension point="xbmc.addon.repository">
         <dir>
-            <info>https://raw.githubusercontent.com/ashcan57/repository.encore/main/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/ashcan57/repository.encore/main/addons.xml.md5</checksum>
-            <datadir>https://raw.githubusercontent.com/ashcan57/repository.encore/main/zips/</datadir>
+            <info>addons.xml</info>
+            <checksum>addons.xml.md5</checksum>
+            <datadir>zips/</datadir>
         </dir>
     </extension>
-
     <extension point="xbmc.addon.metadata">
         <summary>Encore Kodi Repository</summary>
-        <description>Contains the Encore Wizard and related addons.</description>
+        <description>Contains the Encore Wizard addon.</description>
         <platform>all</platform>
     </extension>
 </addon>
+
